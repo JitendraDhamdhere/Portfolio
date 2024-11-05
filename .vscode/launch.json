@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///D:/JitendraDesktop/portfolio/Portfolio-Website/index.html",
+            "url": "file:///C:/Users/Jitendra/Portfolio/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
