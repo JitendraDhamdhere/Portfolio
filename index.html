@@ -567,45 +567,69 @@
   <!-- experience section ends -->
 
 
-  <!-- contact section starts -->
-  <section class="contact" id="contact">
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
 
-    <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-    <div class="container">
+  <div class="container">
       <div class="content">
-        <div class="image-box">
-          <img draggable="false" src="./assets/images/contact1.png" alt="">
-        </div>
-        <form id="contact-form">
+          <div class="image-box">
+              <img draggable="false" src="./assets/images/contact1.png" alt="">
+          </div>
+          <form id="contact-form">
 
-          <div class="form-group">
-            <div class="field">
-              <input type="text" name="name" placeholder="Name" required>
-              <i class='fas fa-user'></i>
-            </div>
-            <div class="field">
-              <input type="text" name="email" placeholder="Email" required>
-              <i class='fas fa-envelope'></i>
-            </div>
-            <div class="field">
-              <input type="text" name="phone" placeholder="Phone">
-              <i class='fas fa-phone-alt'></i>
-            </div>
-            <div class="message">
-              <textarea placeholder="Message" name="message" required></textarea>
-              <i class="fas fa-comment-dots"></i>
-            </div>
-          </div>
-          <div class="button-area">
-            <button type="submit">
-              Submit <i class="fa fa-paper-plane"></i></button>
-          </div>
-        </form>
+              <div class="form-group">
+                  <div class="field">
+                      <input type="text" name="name" placeholder="Name" required>
+                      <i class='fas fa-user'></i>
+                  </div>
+                  <div class="field">
+                      <input type="email" name="email" placeholder="Email" required>
+                      <i class='fas fa-envelope'></i>
+                  </div>
+                  <div class="field">
+                      <input type="text" name="phone" placeholder="Phone">
+                      <i class='fas fa-phone-alt'></i>
+                  </div>
+                  <div class="message">
+                      <textarea placeholder="Message" name="message" required></textarea>
+                      <i class="fas fa-comment-dots"></i>
+                  </div>
+              </div>
+              <div class="button-area">
+                  <button type="submit">
+                      Submit <i class="fa fa-paper-plane"></i>
+                  </button>
+              </div>
+          </form>
       </div>
-    </div>
-  </section>
-  <!-- contact section ends -->
+  </div>
+</section>
+
+<!-- EmailJS to handle form submission -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS with your public key
+    emailjs.init("oRGpe9OYRR-mi1z4a");  // Replace with your actual public key if this is incorrect
+
+    // Add submit event listener to the form
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        // Send form data using EmailJS
+        emailjs.sendForm("service_f3bhmhl", "template_0uxqdm6", this)
+            .then(function(response) {
+                console.log("SUCCESS!", response.status, response.text);
+                document.getElementById("contact-form").reset();  // Reset the form
+                alert("Form Submitted Successfully");  // Alert success
+            }, function(error) {
+                console.log("FAILED...", error);
+                alert("Form Submission Failed! Try Again");  // Alert failure
+            });
+    });
+</script>
+
+
 
 
   <!-- footer section starts -->
